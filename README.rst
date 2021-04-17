@@ -164,7 +164,7 @@ respective responses):
     >>> j.post_search(message, skip=0, limit=60)    
 
     # API methods for interacting with single posts:
-    >>> j.create_post(message=None, imgpath=None, b64img=None, color=None, ancestor=None, channel="")
+    >>> j.create_post(message=None, imgpath=None, b64img=None, color=None, ancestor=None, channel="", poll_options=None)
     >>> j.get_post_details(post_id) # This endpoint has been deprecated. Use get_post_details_v3.
     >>> # This api endpoint implements paging and returns at most 50 replies,
     >>> # use the skip parameter to page through the thread:

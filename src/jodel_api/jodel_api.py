@@ -311,7 +311,7 @@ class JodelAccount:
     # SINGLE POST METHODS #
     # ################### #
 
-    def create_post(self, message=None, imgpath=None, b64img=None, color=None, ancestor=None, channel="", **kwargs):
+    def create_post(self, message=None, imgpath=None, b64img=None, color=None, ancestor=None, channel="", poll_options=None, **kwargs):
         if not imgpath and not message and not b64img:
             raise ValueError("One of message or imgpath must not be null.")
 
@@ -326,6 +326,8 @@ class JodelAccount:
                 payload["image"] = imgdata
         elif b64img:
             payload["image"] = b64img
+        if poll_options:
+            payload["poll_options"] = poll_options
 
         return self._send_request("POST", '/v3/posts/', payload=payload, **kwargs)
 
